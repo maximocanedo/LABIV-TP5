@@ -9,6 +9,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Ventana extends JFrame {
  
@@ -47,6 +51,11 @@ public class Ventana extends JFrame {
 		menuBar.add(mnPeliculas);
 		
 		miAgregar = new JMenuItem("Agregar");
+		miAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Punto1.Ventana2();
+			}
+		});
 		mnPeliculas.add(miAgregar);
 		
 		miListar = new JMenuItem("Listar");
