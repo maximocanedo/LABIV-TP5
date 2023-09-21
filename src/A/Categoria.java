@@ -1,8 +1,9 @@
-package tp5;
+package A;
 
 public class Categoria {
 	
 	String nombre;
+	
 	
 	public Categoria(String nombre) {
 		super();
@@ -26,3 +27,5 @@ public class Categoria {
 	}
 	
 }
+
+
