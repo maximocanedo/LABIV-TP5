@@ -7,14 +7,26 @@ public class Pelicula {
 	
 	public static int ID = 0;
 	
-	public Pelicula(){
-		
-	}
-	
-	public Pelicula(int id, String nombre, Categoria categoria) {
-		this.id = id;
+	public Pelicula(String nombre, Categoria categoria) {
+		this.id = ID + 1;
+		ID++;
 		this.nombre = nombre;
 		this.categoria = categoria;
+	}
+	
+	public Pelicula(String nombre) {
+		this(nombre, Categoria.NONE);
+	}
+	
+	public Pelicula(Categoria categoria) {
+		this("Película sin nombre", categoria);
+	}
+	
+	public static int getNextId() {
+		return ID + 1;
+	}
+	public static String getNextIdAsString() {
+		return "" + (ID + 1);
 	}
 
 	public int getId() {

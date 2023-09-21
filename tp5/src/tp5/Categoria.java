@@ -4,6 +4,8 @@ public class Categoria {
 	private int id; 
 	private String nombre;
 	
+	public static Categoria NONE = new Categoria(0, "Sin categoría");
+	
 	public Categoria(int id, String nombre) {
 		super();
 		this.id = id;
