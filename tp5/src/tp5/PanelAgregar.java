@@ -1,11 +1,11 @@
 package tp5;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class PanelAgregar extends JPanel {
 
@@ -57,4 +57,5 @@ public class PanelAgregar extends JPanel {
         btnCancelar.setBounds(284, 122, 89, 23);
         add(btnCancelar);
     }
+
 }

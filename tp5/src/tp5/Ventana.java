@@ -22,7 +22,8 @@ public class Ventana extends JFrame {
 	private JMenu mnPeliculas;
 	private JMenuItem miAgregar;
 	private JMenuItem miListar;
-	private JPanel panelAgregar;
+	private PanelAgregar panelAgregar;
+	private PanelListar panelListar;
 
 	public Ventana() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,12 +38,21 @@ public class Ventana extends JFrame {
 		miAgregar = new JMenuItem("Agregar");
 		miAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				panelAgregar.setVisible(true);
+				panelListar.setVisible(false);
 				
 			}
 		});
 		mnPeliculas.add(miAgregar);
 		
 		miListar = new JMenuItem("Listar");
+		miListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelAgregar.setVisible(false);
+				panelListar.setVisible(true);
+				
+			}
+		});
 		mnPeliculas.add(miListar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,5 +63,12 @@ public class Ventana extends JFrame {
 		panelAgregar = new PanelAgregar();
 		panelAgregar.setBounds(0, 0, 393, 170);
 		contentPane.add(panelAgregar);
+		
+		panelListar = new PanelListar();
+		panelListar.setBounds(0,0,393,170);
+		contentPane.add(panelListar);
+		
+		panelAgregar.setVisible(true);
+		panelListar.setVisible(false);
 	}
 }
