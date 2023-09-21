@@ -49,7 +49,8 @@ public class Ventana extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		panelAgregar = new JPanel();
+		
+		panelAgregar = new PanelAgregar();
 		panelAgregar.setBounds(0, 0, 393, 170);
 		contentPane.add(panelAgregar);
 	}
