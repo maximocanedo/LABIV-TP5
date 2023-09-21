@@ -35,7 +35,8 @@ public class Ventana extends JFrame {
 		
 	public Ventana(DefaultListModel<Pelicula> modeloRecibido) {
 		this.modeloMenu =	modeloRecibido;
-		
+		contentPane = new JPanel();
+		contentPane.setLayout(null); // Nota. Seteá el layout que quieras		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 484, 260);
 		setContentPane(contentPane);
