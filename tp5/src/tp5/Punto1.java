@@ -17,6 +17,12 @@ public class Punto1 extends JFrame {
 	private JPanel contentPane;
 	private JTextField textId;
 	private JTextField textNombre;
+	private JLabel lblID;
+	private JLabel lblNombre;
+	private JLabel lblGenero;
+	private JComboBox comboBox;
+	private JButton btnAceptar;
+	private JButton btnCancelar;
 
 	/**
 	 * Launch the application.
@@ -45,7 +51,7 @@ public class Punto1 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblID = new JLabel("ID");
+		lblID = new JLabel("ID");
 		lblID.setBounds(66, 26, 46, 14);
 		contentPane.add(lblID);
 		
@@ -55,11 +61,11 @@ public class Punto1 extends JFrame {
 		contentPane.add(textId);
 		textId.setColumns(10);
 		
-		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(66, 51, 46, 14);
 		contentPane.add(lblNombre);
 		
-		JLabel lblGenero = new JLabel("Genero");
+		lblGenero = new JLabel("Genero");
 		lblGenero.setBounds(66, 83, 46, 14);
 		contentPane.add(lblGenero);
 		
@@ -68,16 +74,16 @@ public class Punto1 extends JFrame {
 		contentPane.add(textNombre);
 		textNombre.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seleccione un g\u00E9nero", "Terror", "Acci\u00F3n", "Suspenso", "Rom\u00E1ntica"}));
 		comboBox.setBounds(153, 80, 127, 17);
 		contentPane.add(comboBox);
 		
-		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBounds(66, 122, 89, 23);
 		contentPane.add(btnAceptar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(284, 122, 89, 23);
 		contentPane.add(btnCancelar);
 	}

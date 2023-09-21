@@ -22,24 +22,8 @@ public class Ventana extends JFrame {
 	private JMenu mnPeliculas;
 	private JMenuItem miAgregar;
 	private JMenuItem miListar;
+	private JPanel panelAgregar;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Ventana frame = new Ventana();
-					frame.setTitle("Trabajo Practico Nº5");
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Ventana() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 409, 230);
@@ -53,7 +37,7 @@ public class Ventana extends JFrame {
 		miAgregar = new JMenuItem("Agregar");
 		miAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Punto1.Ventana2();
+				
 			}
 		});
 		mnPeliculas.add(miAgregar);
@@ -62,8 +46,11 @@ public class Ventana extends JFrame {
 		mnPeliculas.add(miListar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		panelAgregar = new JPanel();
+		panelAgregar.setBounds(0, 0, 393, 170);
+		contentPane.add(panelAgregar);
 	}
-
 }
