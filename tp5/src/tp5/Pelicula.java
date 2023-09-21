@@ -1,34 +1,36 @@
 package tp5;
 
 public class Pelicula {
-	Integer ID;
+	int id;
 	String nombre;
 	Categoria categoria;
 	
-	Pelicula(){
+	public static int ID = 0;
+	
+	public Pelicula(){
 		
 	}
 	
-	public Pelicula(Integer iD, String nombre, Categoria categoria) {
-		ID = iD;
+	public Pelicula(int id, String nombre, Categoria categoria) {
+		this.id = id;
 		this.nombre = nombre;
 		this.categoria = categoria;
 	}
 
-	public Integer getID() {
-		return ID;
+	public int getId() {
+		return this.id;
 	}
-	public void setID(Integer iD) {
-		ID = iD;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	public Categoria getCategoria() {
-		return categoria;
+		return this.categoria;
 	}
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
@@ -36,7 +38,7 @@ public class Pelicula {
 
 	@Override
 	public String toString() {
-		return  ID + ". [" + categoria.toString() + "] "+ nombre;
+		return  this.id + ". [" + categoria.toString() + "] "+ this.nombre;
 	}
 	
 }
