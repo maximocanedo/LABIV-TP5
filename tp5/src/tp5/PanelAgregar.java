@@ -27,6 +27,7 @@ public class PanelAgregar extends JPanel {
 
         textId = new JTextField();
         textId.setEditable(false);
+        textId.setText(Pelicula.getNextIdAsString());
         textId.setBounds(153, 23, 86, 20);
         add(textId);
         textId.setColumns(10);
@@ -52,6 +53,12 @@ public class PanelAgregar extends JPanel {
         btnAceptar = new JButton("Aceptar");
         btnAceptar.setBounds(66, 122, 89, 23);
         add(btnAceptar);
+        
+        // ATENCIÓN:
+        // A la hora de agregar funcionalidad a btnAceptar:
+        // - NO usar el valor de textId, sino usar Pelicula.getNextId() como un int.
+        // - Cuando se agrega el elemento correctamente, actualizar el textId.setText(Pelicula.getNextIdAsString()); para que se ACTUALICE el ID.
+        // 
 
         btnCancelar = new JButton("Cancelar");
         btnCancelar.setBounds(284, 122, 89, 23);
