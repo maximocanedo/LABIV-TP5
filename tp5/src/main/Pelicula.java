@@ -5,7 +5,7 @@ public class Pelicula {
 	String nombre;
 	Categoria categoria;
 	
-	public static int ID = 999;
+	public static int ID = 0;
 	
 	public Pelicula(String nombre, Categoria categoria) {
 		this.id = ID;
