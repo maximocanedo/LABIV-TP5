@@ -1,9 +1,9 @@
 package tp5;
 
 public class Pelicula {
-	int id;
-	String nombre;
-	Categoria categoria;
+	private int id;
+	private String nombre;
+	private Categoria categoria;
 	
 	public static int ID = 0;
 	

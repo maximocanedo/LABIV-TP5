@@ -1,24 +1,24 @@
 package tp5;
 
 public class Categoria {
-	Integer ID; 
-	String nombre;
+	private int id; 
+	private String nombre;
 	
-	public Categoria(Integer iD, String nombre) {
+	public Categoria(int id, String nombre) {
 		super();
-		ID = iD;
+		this.id = id;
 		this.nombre = nombre;
 	}
-	public Integer getID() {
-		return ID;
+	public int getId() {
+		return this.id;
 	}
 	
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 	
-	public void setID(Integer iD) {
-		ID = iD;
+	public void setID(int id) {
+		this.id = id;
 	}
 	
 	public void setNombre(String nombre) {
