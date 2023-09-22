@@ -3,6 +3,7 @@ package tp5;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -13,6 +14,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class Ventana extends JFrame {
  
@@ -26,6 +28,7 @@ public class Ventana extends JFrame {
 	private PanelListar panelListar;
 
 	public Ventana() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Ventana.class.getResource("/tp5/utn.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 409, 230);
 		
@@ -36,6 +39,7 @@ public class Ventana extends JFrame {
 		menuBar.add(mnPeliculas);
 		
 		miAgregar = new JMenuItem("Agregar");
+		miAgregar.setIcon(new ImageIcon(Ventana.class.getResource("/tp5/agregar.png")));
 		miAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelAgregar.setVisible(true);
@@ -43,9 +47,14 @@ public class Ventana extends JFrame {
 				
 			}
 		});
+		
+	
+		
+		
 		mnPeliculas.add(miAgregar);
 		
 		miListar = new JMenuItem("Listar");
+		miListar.setIcon(new ImageIcon(Ventana.class.getResource("/tp5/lista.png")));
 		miListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelAgregar.setVisible(false);
@@ -68,7 +77,7 @@ public class Ventana extends JFrame {
 		panelListar.setBounds(0,0,393,170);
 		contentPane.add(panelListar);
 		
-		panelAgregar.setVisible(true);
+		panelAgregar.setVisible(false);
 		panelListar.setVisible(false);
 	}
 }

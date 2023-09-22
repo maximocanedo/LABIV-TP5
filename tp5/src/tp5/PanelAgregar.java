@@ -8,16 +8,16 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class PanelAgregar extends JPanel {
-
-    private JTextField textId;
     private JTextField textNombre;
     private JLabel lblID;
     private JLabel lblNombre;
     private JLabel lblGenero;
     private JComboBox<Categoria> comboBox;
     private JButton btnAceptar;
+    private JLabel lblIDNuevo;
 
     public PanelAgregar() {
         setLayout(null);
@@ -25,13 +25,6 @@ public class PanelAgregar extends JPanel {
         lblID = new JLabel("ID");
         lblID.setBounds(66, 26, 46, 14);
         add(lblID);
-
-        textId = new JTextField();
-        textId.setEditable(false);
-        textId.setText(Pelicula.getNextIdAsString());
-        textId.setBounds(153, 23, 86, 20);
-        add(textId);
-        textId.setColumns(10);
 
         lblNombre = new JLabel("Nombre");
         lblNombre.setBounds(66, 51, 46, 14);
@@ -45,10 +38,15 @@ public class PanelAgregar extends JPanel {
         textNombre.setBounds(153, 54, 86, 20);
         add(textNombre);
         textNombre.setColumns(10);
-
+        
+        lblIDNuevo = new JLabel(Pelicula.getNextIdAsString());
+        lblIDNuevo.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblIDNuevo.setBounds(153, 26, 138, 14);
+        add(lblIDNuevo);
+        
         comboBox = new JComboBox<Categoria>();
         comboBox.setModel(new DefaultComboBoxModel<Categoria>(Categoria.CATEGORIAS));
-        comboBox.setBounds(153, 80, 127, 17);
+        comboBox.setBounds(153, 80, 184, 17);
         add(comboBox);
 
         btnAceptar = new JButton("Aceptar");
@@ -57,12 +55,16 @@ public class PanelAgregar extends JPanel {
         		if(textNombre.getText().trim().length() > 0 && comboBox.getSelectedItem() != Categoria.SELECCIONE_CATEGORIA) {
         			Pelicula peli = new Pelicula(textNombre.getText(), (Categoria)comboBox.getSelectedItem());
         			Pelicula.model.addElement(peli);
+        			lblIDNuevo.setText(Pelicula.getNextIdAsString());
         			// ACÁ HAY QUE ORDENAR TODO ALFABÉTICAMENTE Y VOLVER A GUARDAR EN Pelicula.model. 
         		}
+        		textNombre.setText("");
+        		comboBox.setSelectedItem(Categoria.SELECCIONE_CATEGORIA);
         	}
         });
         btnAceptar.setBounds(66, 122, 89, 23);
         add(btnAceptar);
+        
+    
     }
-
 }
