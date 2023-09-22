@@ -62,7 +62,7 @@ public class PanelAgregar extends JPanel {
     				msj+= textNombre.getText().toString().trim().isEmpty() ? "- Debe ingresar nombre de la pelicula\n":  "";
     				msj+=(comboBox.getSelectedItem() == Categoria.SELECCIONE_CATEGORIA) ? "- Debe seleccionar Genero": "";	
     				
-    				if((comboBox.getSelectedItem().toString()=="Seleccione un genero")	
+    				if((comboBox.getSelectedItem() == Categoria.SELECCIONE_CATEGORIA)	
     						|| textNombre.getText().toString().trim().isEmpty()) {
     					JOptionPane.showMessageDialog(null,msj,"Validando Datos",
     								JOptionPane.ERROR_MESSAGE);
@@ -89,12 +89,12 @@ public class PanelAgregar extends JPanel {
 							if(Pelicula.model.size() > 1) {
 								ordenarElementos(Pelicula.model);
 							}
-							
-						}
-	            			lblIDNuevo.setText(Pelicula.getNextIdAsString());
+							lblIDNuevo.setText(Pelicula.getNextIdAsString());
 	    					
 	    					JOptionPane.showMessageDialog(null,"Pelicula Agregada Correctamente!","Validando Datos",
     							JOptionPane.INFORMATION_MESSAGE);
+						}
+	            			
     				
     				}
         			
