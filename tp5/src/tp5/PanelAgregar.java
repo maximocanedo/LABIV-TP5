@@ -6,6 +6,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PanelAgregar extends JPanel {
 
@@ -14,9 +16,8 @@ public class PanelAgregar extends JPanel {
     private JLabel lblID;
     private JLabel lblNombre;
     private JLabel lblGenero;
-    private JComboBox<String> comboBox;
+    private JComboBox<Categoria> comboBox;
     private JButton btnAceptar;
-    private JButton btnCancelar;
 
     public PanelAgregar() {
         setLayout(null);
@@ -45,24 +46,23 @@ public class PanelAgregar extends JPanel {
         add(textNombre);
         textNombre.setColumns(10);
 
-        comboBox = new JComboBox<>();
-        comboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Seleccione un género", "Terror", "Acción", "Suspenso", "Romántica" }));
+        comboBox = new JComboBox<Categoria>();
+        comboBox.setModel(new DefaultComboBoxModel<Categoria>(Categoria.CATEGORIAS));
         comboBox.setBounds(153, 80, 127, 17);
         add(comboBox);
 
         btnAceptar = new JButton("Aceptar");
+        btnAceptar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		if(textNombre.getText().trim().length() > 0 && comboBox.getSelectedItem() != Categoria.SELECCIONE_CATEGORIA) {
+        			Pelicula peli = new Pelicula(textNombre.getText(), (Categoria)comboBox.getSelectedItem());
+        			Pelicula.model.addElement(peli);
+        			// ACÁ HAY QUE ORDENAR TODO ALFABÉTICAMENTE Y VOLVER A GUARDAR EN Pelicula.model. 
+        		}
+        	}
+        });
         btnAceptar.setBounds(66, 122, 89, 23);
         add(btnAceptar);
-        
-        // ATENCIÓN:
-        // A la hora de agregar funcionalidad a btnAceptar:
-        // - NO usar el valor de textId, sino usar Pelicula.getNextId() como un int.
-        // - Cuando se agrega el elemento correctamente, actualizar el textId.setText(Pelicula.getNextIdAsString()); para que se ACTUALICE el ID.
-        // 
-
-        btnCancelar = new JButton("Cancelar");
-        btnCancelar.setBounds(284, 122, 89, 23);
-        add(btnCancelar);
     }
 
 }

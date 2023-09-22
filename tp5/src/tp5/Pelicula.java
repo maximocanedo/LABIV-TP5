@@ -1,11 +1,14 @@
 package tp5;
 
+import javax.swing.DefaultListModel;
+
 public class Pelicula {
 	private int id;
 	private String nombre;
 	private Categoria categoria;
 	
 	public static int ID = 0;
+	public static DefaultListModel<Pelicula> model = new DefaultListModel<Pelicula>();
 	
 	public Pelicula(String nombre, Categoria categoria) {
 		this.id = ID + 1;
@@ -15,7 +18,7 @@ public class Pelicula {
 	}
 	
 	public Pelicula(String nombre) {
-		this(nombre, Categoria.NONE);
+		this(nombre, Categoria.SIN_CATEGORIA);
 	}
 	
 	public Pelicula(Categoria categoria) {
