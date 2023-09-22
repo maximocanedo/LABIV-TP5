@@ -42,9 +42,12 @@ public class Ventana extends JFrame {
 		miAgregar.setIcon(new ImageIcon(Ventana.class.getResource("/tp5/agregar.png")));
 		miAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelAgregar.setVisible(true);
-				panelListar.setVisible(false);
-				
+				contentPane.removeAll();
+				panelAgregar = new PanelAgregar();
+				panelAgregar.setBounds(0, 0, 393, 170);
+				contentPane.add(panelAgregar);
+				contentPane.repaint();
+				contentPane.revalidate(); 
 			}
 		});
 		
@@ -57,9 +60,12 @@ public class Ventana extends JFrame {
 		miListar.setIcon(new ImageIcon(Ventana.class.getResource("/tp5/lista.png")));
 		miListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelAgregar.setVisible(false);
-				panelListar.setVisible(true);
-				
+				contentPane.removeAll();
+				panelListar = new PanelListar();
+				panelListar.setBounds(0,0,393,170);
+				contentPane.add(panelListar);
+				contentPane.repaint();
+				contentPane.revalidate(); 
 			}
 		});
 		mnPeliculas.add(miListar);
@@ -69,15 +75,6 @@ public class Ventana extends JFrame {
 		contentPane.setLayout(null);
 		
 		
-		panelAgregar = new PanelAgregar();
-		panelAgregar.setBounds(0, 0, 393, 170);
-		contentPane.add(panelAgregar);
 		
-		panelListar = new PanelListar();
-		panelListar.setBounds(0,0,393,170);
-		contentPane.add(panelListar);
-		
-		panelAgregar.setVisible(false);
-		panelListar.setVisible(false);
 	}
 }
